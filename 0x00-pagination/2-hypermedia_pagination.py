@@ -63,12 +63,12 @@ class Server:
             total_pages += 1
 
         my_dict = {
-            'page_size' : page_size,
-            'page' : page,
-            'data' : get_page_data,
-            'next_page' : (page + 1) if page < total_pages else None,
-            'prev_page' : (page - 1) if page > 1 else None,
-            'total_pages' : total_pages
+            'page_size': page_size,
+            'page': page,
+            'data': get_page_data,
+            'next_page': (page + 1) if page < total_pages else None,
+            'prev_page': (page - 1) if page > 1 else None,
+            'total_pages': total_pages
         }
 
         return my_dict
