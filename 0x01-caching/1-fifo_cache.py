@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 '''This module demonstrates FIFO caching'''
 from base_caching import BaseCaching
+from collections import OrderedDict
 
 
 class FIFOCache(BaseCaching):
@@ -9,21 +10,21 @@ class FIFOCache(BaseCaching):
     def __init__(self):
         '''Initializes this subclass'''
         super().__init__()
-        self.cache_keys = []
+        self.cache_data = OrderedDict()
 
     def put(self, key, item):
         '''Adds key-value pairs to cache '''
+
         if key is None or item is None:
-            return None
-        elif len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-            oldest_key = self.cache_keys.pop(0)
-            print(f'DISCARD : {oldest_key}')
-            del self.cache_data[oldest_key]
+            return
         self.cache_data[key] = item
-        self.cache_keys.append(key)
+
+        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+            first_key, _ = self.cache_data.popitem(last=False)
+            print(f'DISCARD: {first_key}')
 
     def get(self, key):
-        '''Returns the values in self.cache_data'''
+        '''Returns the value linked to argument key'''
         if key is None:
             return None
         return self.cache_data[key]
