@@ -25,4 +25,7 @@ class FIFOCache(BaseCaching):
 
     def get(self, key):
         '''Returns the value linked to argument key'''
-        return self.cache_data.get(key, None)
+        if key is None:
+            return None
+        else:
+            return self.cache_data[key]
