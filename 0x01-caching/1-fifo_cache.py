@@ -16,7 +16,7 @@ class FIFOCache(BaseCaching):
         '''Adds key-value pairs to cache '''
 
         if key is None or item is None:
-            return
+            pass
         self.cache_data[key] = item
 
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
