@@ -12,7 +12,7 @@ class BasicCache(BaseCaching):
                 key : unique identifier
                 item : value to be added
         '''
-        if key == None or item == None:
+        if key is None or item is None:
             pass
         else:
             self.cache_data[key] = item
@@ -22,7 +22,7 @@ class BasicCache(BaseCaching):
             Args:
                 key : unique ID
         '''
-        if key == None:
+        if key is None:
             return None
         else:
             for k, v in self.cache_data.items():
