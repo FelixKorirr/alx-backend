@@ -2,8 +2,10 @@
 '''This module demonstrates FIFO caching'''
 from base_caching import BaseCaching
 
+
 class FIFOCache(BaseCaching):
     '''This class represent the subclass FIFOCache'''
+
     def __init__(self):
         '''Initializes this subclass'''
         super().__init__()
