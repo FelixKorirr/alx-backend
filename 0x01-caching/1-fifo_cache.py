@@ -13,7 +13,7 @@ class FIFOCache(BaseCaching):
         self.cache_data = OrderedDict()
 
     def put(self, key, item):
-        '''Adds key-value pairs to cache '''
+        '''Adds key-value pairs to cache'''
 
         if key is None or item is None:
             return
@@ -25,6 +25,4 @@ class FIFOCache(BaseCaching):
 
     def get(self, key):
         '''Returns the value linked to argument key'''
-        if key is None:
-            return None
-        return self.cache_data[key]
+        return self.cache_data.get(key, None)
