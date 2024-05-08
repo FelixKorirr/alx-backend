@@ -14,7 +14,7 @@ class FIFOCache(BaseCaching):
     def put(self, key, item):
         '''Adds key-value pairs to cache '''
         if key is None or item is None:
-            pass
+            return None
         elif len(self.cache_data) >= BaseCaching.MAX_ITEMS:
             oldest_key = self.cache_keys.pop(0)
             print(f'DISCARD : {oldest_key}')
